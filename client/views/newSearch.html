@@ -1,0 +1,23 @@
+
+<div ng-if="fact" ><h3>Search results</h3></div>
+<div ng-repeat = "a in fact">
+	<div class="panel panel-default">
+
+			<div class="row">		
+		
+			<div class="col-xs-6 col-md-4">
+			
+			<img src= "{{a.show.image.medium}}"></div>
+			<div class="col-xs-8 col-md-6">
+			<h3>{{a.show.name}}</h3><br></td>
+
+			<p ng-bind-html='a.show.summary | trustHTML'></p>
+			<div>
+				
+			<a href= "/show/{{a.show.id}}" class ="btn btn-primary pull-right btn-sm">Details</a>
+			</div>
+
+	</div>
+</div>
+</div>
+</div>

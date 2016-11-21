@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <!--  <title>Bootstrap Example</title> -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+    		<div class="col-sm-4">
+    			
+    			<h2>{{show.name}}</h2>
+
+            	<div ng-repeat="g in show.genres">
+                   	<div class ="col-xs-2">{{g}}|</div>
+              		
+              	</div>
+              	<br><br>
+              	<img style='float:left; height: 200px; width: 200px; margin-right: 4px;' img src="{{show.image.medium}}" >
+    		</div>
+    	<!-- <div class="row">	 -->
+
+    		<div class="col-md-8">
+
+    			<br><br><br><br><br>
+    			<div  ng-bind-html='show.summary | trustHTML'></div>
+    		
+  			
+  			<div class="col-md-10">
+  				<h3> Cast </h3>
+  				
+  				
+                 <div ng-repeat="c in show._embedded.cast">
+                 	<div class="row">
+                 		<div class= "panel-body">
+                 			<div class="panel panel-default">
+
+                 	<div ng-if="c.character.image!=null && c.person.image==null">
+                        <img src ="{{c.character.image.medium}}" height="100" width="100">{{c.person.name}} as {{c.character.name}}
+                     </div>
+                 	
+
+                 	
+                    <div ng-if="c.person.image!=null">
+                        <img src ="{{c.person.image.medium}}" height="100" width="100">{{c.person.name}} as {{c.character.name}}
+                     </div>
+                    
+
+                 	
+					<div ng-if="c.character.image==null && c.person.image==null">
+                        <img src ="js/image/images.jpg" height="100" width="100">{{c.person.name}} as {{c.character.name}}
+                    </div>
+                    
+                    
+                              
+                    <!-- <p class="text-right">{{c.person.name}} as {{c.character.name}}</p> -->
+                        
+                 </div>
+            </div>
+        </div>
+        </div>
+        </div>
+  		</div>
+            </div>
+        </div>
+    </div>
+        
